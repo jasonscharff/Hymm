@@ -43,9 +43,14 @@
 -(void)configureNavBar {
   UIBarButtonItem *flipButton = [[UIBarButtonItem alloc]
                                  initWithTitle:@"Cancel"
-                                 style:UIBarButtonItemStyleDone
+                                 style:UIBarButtonItemStylePlain
                                  target:self
                                  action:@selector(dismissView:)];
+  
+  [flipButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIFont fontWithName:@"AvenirNext-Regular" size:18.0], NSFontAttributeName,
+                                      [UIColor blackColor], NSForegroundColorAttributeName,
+                                      nil] forState:UIControlStateNormal];
   
   self.navigationItem.leftBarButtonItem = flipButton;
 }
