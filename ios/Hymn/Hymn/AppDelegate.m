@@ -14,7 +14,6 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, strong) SpotifyLoginViewController *spotifyHandler;
 
 @end

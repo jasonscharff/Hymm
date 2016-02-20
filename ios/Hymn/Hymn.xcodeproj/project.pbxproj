@@ -20,6 +20,7 @@
 		BE7A6AD91C78A95B00479E80 /* RESTSessionManager+Space.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7A6AD81C78A95B00479E80 /* RESTSessionManager+Space.m */; };
 		BE7A6ADC1C78BB3B00479E80 /* CreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7A6ADB1C78BB3B00479E80 /* CreateViewController.m */; };
 		BE7A6ADF1C78BDDC00479E80 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7A6ADE1C78BDDC00479E80 /* Utilities.m */; };
+		BE7A6AE21C78D6C400479E80 /* UIColor+ColorPalette.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7A6AE11C78D6C400479E80 /* UIColor+ColorPalette.m */; };
 		BE84429D1C785DB8001D4AB7 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */; };
 		BE84429E1C785DB8001D4AB7 /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429C1C785DB8001D4AB7 /* LinearLayout.m */; };
 		BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */; };
@@ -55,6 +56,8 @@
 		BE7A6ADB1C78BB3B00479E80 /* CreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateViewController.m; sourceTree = "<group>"; };
 		BE7A6ADD1C78BDDC00479E80 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		BE7A6ADE1C78BDDC00479E80 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		BE7A6AE01C78D6C400479E80 /* UIColor+ColorPalette.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+ColorPalette.h"; sourceTree = "<group>"; };
+		BE7A6AE11C78D6C400479E80 /* UIColor+ColorPalette.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+ColorPalette.m"; sourceTree = "<group>"; };
 		BE8442991C785DB8001D4AB7 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		BE84429B1C785DB8001D4AB7 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
@@ -119,6 +122,8 @@
 		BE728F721C784BC4003DCAA2 /* Hymn */ = {
 			isa = PBXGroup;
 			children = (
+				BE7A6AE01C78D6C400479E80 /* UIColor+ColorPalette.h */,
+				BE7A6AE11C78D6C400479E80 /* UIColor+ColorPalette.m */,
 				BE728F761C784BC4003DCAA2 /* AppDelegate.h */,
 				BE728F771C784BC4003DCAA2 /* AppDelegate.m */,
 				BE7A6ADD1C78BDDC00479E80 /* Utilities.h */,
@@ -335,6 +340,7 @@
 				BE8442B31C789B4B001D4AB7 /* RESTSessionManager.m in Sources */,
 				BE8442A71C7870D8001D4AB7 /* JoinOrCreateViewController.m in Sources */,
 				BE7A6AD61C789D5800479E80 /* RESTSessionManager+Auth.m in Sources */,
+				BE7A6AE21C78D6C400479E80 /* UIColor+ColorPalette.m in Sources */,
 				BE728F781C784BC4003DCAA2 /* AppDelegate.m in Sources */,
 				BE728F751C784BC4003DCAA2 /* main.m in Sources */,
 				BE7A6ADF1C78BDDC00479E80 /* Utilities.m in Sources */,

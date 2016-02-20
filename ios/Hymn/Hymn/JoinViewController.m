@@ -15,6 +15,7 @@
 #import "ImageArrangedButton.h"
 #import "RESTSessionManager+Space.h"
 #import "QRCodeScannerViewController.h"
+#import "UIColor+ColorPalette.h"
 
 @interface JoinViewController () <UITextFieldDelegate>
 
@@ -90,6 +91,11 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
   }
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.title = @"Join a space.";
+}
+
 -(IBAction)submitSpaceIdentifier:(id)sender {
   [[RESTSessionManager sharedSessionManager]joinSpaceWithIdentifier:self.accessCodeField.text];
 }
@@ -98,6 +104,8 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
   QRCodeScannerViewController *qrVC = [[QRCodeScannerViewController alloc]init];
   qrVC.previousVC = self;
   UINavigationController *nav = [[UINavigationController alloc]init];
+  nav.navigationBar.barTintColor = [UIColor navbarColor];
+  nav.navigationBar.tintColor = [UIColor whiteColor];
   [nav pushViewController:qrVC animated:NO];
   [self presentViewController:nav animated:YES completion:nil];
   

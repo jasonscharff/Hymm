@@ -54,6 +54,11 @@
   
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.title = @"Hymn";
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -64,12 +69,24 @@
   [[RESTSessionManager sharedSessionManager]createSpace:^(NSString *spaceIdentifier) {
     CreateViewController *createVC = [[CreateViewController alloc]init];
     createVC.code = spaceIdentifier;
+    UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                   initWithTitle: @"Back"
+                                   style: UIBarButtonItemStylePlain
+                                   target: nil action: nil];
+    
+    [self.navigationItem setBackBarButtonItem: backButton];
     [self.navigationController pushViewController:createVC animated:YES];
   }];
 }
 
 -(IBAction)joinSpace:(id)sender {
   JoinViewController *joinVC = [[JoinViewController alloc]init];
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                 initWithTitle: @"Back"
+                                 style: UIBarButtonItemStylePlain
+                                 target: nil action: nil];
+  
+  [self.navigationItem setBackBarButtonItem: backButton];
   [self.navigationController pushViewController:joinVC animated:YES];
 }
 

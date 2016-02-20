@@ -17,6 +17,7 @@
 #import "ImageArrangedButton.h"
 #import "JoinOrCreateViewController.h"
 #import "RESTSessionManager+Auth.h"
+#import "UIColor+ColorPalette.h"
 
 @interface SpotifyLoginViewController ()
 
@@ -105,13 +106,13 @@
   [[RESTSessionManager sharedSessionManager]loginWithSession:session];
   
   UINavigationController *navController = [[UINavigationController alloc]init];
+  navController.navigationBar.barTintColor = [UIColor navbarColor];
+  navController.navigationBar.tintColor = [UIColor whiteColor];
   navController.navigationBar.translucent = NO;
   
   [navController.navigationBar setTitleTextAttributes:
    @{NSForegroundColorAttributeName:[UIColor blackColor],
      NSFontAttributeName:[UIFont fontWithName:@"AvenirNext-Regular" size:21]}];
-  
-    self.navigationController.navigationItem.title = @"Hymn";
   
   JoinOrCreateViewController *nextVC = [[JoinOrCreateViewController alloc]init];
   [navController pushViewController:nextVC animated:NO];

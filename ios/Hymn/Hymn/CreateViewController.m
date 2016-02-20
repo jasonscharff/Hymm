@@ -83,6 +83,11 @@
   self.qrCodeImage.hidden = YES;
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.title = @"Create a space.";
+}
+
 -(void)flipDisplayItem : (UITapGestureRecognizer *)recognizer {
     [UIView transitionWithView:_parentView
                       duration:0.5
