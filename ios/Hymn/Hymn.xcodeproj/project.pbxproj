@@ -16,6 +16,7 @@
 		BE728F8B1C784D7E003DCAA2 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8A1C784D7E003DCAA2 /* Spotify.framework */; };
 		BE728F8D1C785141003DCAA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8C1C785141003DCAA2 /* AVFoundation.framework */; };
 		BE728F8F1C785148003DCAA2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8E1C785148003DCAA2 /* SystemConfiguration.framework */; };
+		BE7A6AD61C789D5800479E80 /* RESTSessionManager+Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7A6AD51C789D5800479E80 /* RESTSessionManager+Auth.m */; };
 		BE84429D1C785DB8001D4AB7 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */; };
 		BE84429E1C785DB8001D4AB7 /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429C1C785DB8001D4AB7 /* LinearLayout.m */; };
 		BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */; };
@@ -23,6 +24,7 @@
 		BE8442AA1C7871A6001D4AB7 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A91C7871A6001D4AB7 /* JoinViewController.m */; };
 		BE8442AD1C7879A9001D4AB7 /* QRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442AC1C7879A9001D4AB7 /* QRCodeScannerViewController.m */; };
 		BE8442B01C787A30001D4AB7 /* BottomBorderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442AF1C787A30001D4AB7 /* BottomBorderTextField.m */; };
+		BE8442B31C789B4B001D4AB7 /* RESTSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442B21C789B4B001D4AB7 /* RESTSessionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		BE728F8E1C785148003DCAA2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BE728F921C7853CA003DCAA2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
 		BE728F931C7854FD003DCAA2 /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Hymn-ftuoxxdwmkmiyzbqprpslwteyfdf/Build/Products/Debug-iphonesimulator/SocketIOClientSwift.framework"; sourceTree = "<group>"; };
+		BE7A6AD41C789D5800479E80 /* RESTSessionManager+Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RESTSessionManager+Auth.h"; sourceTree = "<group>"; };
+		BE7A6AD51C789D5800479E80 /* RESTSessionManager+Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RESTSessionManager+Auth.m"; sourceTree = "<group>"; };
 		BE8442991C785DB8001D4AB7 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		BE84429B1C785DB8001D4AB7 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
@@ -56,6 +60,8 @@
 		BE8442AC1C7879A9001D4AB7 /* QRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeScannerViewController.m; sourceTree = "<group>"; };
 		BE8442AE1C787A30001D4AB7 /* BottomBorderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBorderTextField.h; sourceTree = "<group>"; };
 		BE8442AF1C787A30001D4AB7 /* BottomBorderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBorderTextField.m; sourceTree = "<group>"; };
+		BE8442B11C789B4B001D4AB7 /* RESTSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTSessionManager.h; sourceTree = "<group>"; };
+		BE8442B21C789B4B001D4AB7 /* RESTSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTSessionManager.m; sourceTree = "<group>"; };
 		CC60F95DC73E402DAAB9473D /* Pods_Hymn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hymn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,6 +110,7 @@
 		BE728F721C784BC4003DCAA2 /* Hymn */ = {
 			isa = PBXGroup;
 			children = (
+				BE8442B41C789B50001D4AB7 /* Networking */,
 				BE84429F1C785DBE001D4AB7 /* AutoLayoutHelper */,
 				BE728F761C784BC4003DCAA2 /* AppDelegate.h */,
 				BE728F771C784BC4003DCAA2 /* AppDelegate.m */,
@@ -161,6 +168,17 @@
 				BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		BE8442B41C789B50001D4AB7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				BE8442B11C789B4B001D4AB7 /* RESTSessionManager.h */,
+				BE8442B21C789B4B001D4AB7 /* RESTSessionManager.m */,
+				BE7A6AD41C789D5800479E80 /* RESTSessionManager+Auth.h */,
+				BE7A6AD51C789D5800479E80 /* RESTSessionManager+Auth.m */,
+			);
+			name = Networking;
 			sourceTree = "<group>";
 		};
 		C9929004C1970E96129FE562 /* Frameworks */ = {
@@ -299,7 +317,9 @@
 				BE84429D1C785DB8001D4AB7 /* AutolayoutHelper.m in Sources */,
 				BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */,
 				BE728F7B1C784BC4003DCAA2 /* SpotifyLoginViewController.m in Sources */,
+				BE8442B31C789B4B001D4AB7 /* RESTSessionManager.m in Sources */,
 				BE8442A71C7870D8001D4AB7 /* JoinOrCreateViewController.m in Sources */,
+				BE7A6AD61C789D5800479E80 /* RESTSessionManager+Auth.m in Sources */,
 				BE728F781C784BC4003DCAA2 /* AppDelegate.m in Sources */,
 				BE728F751C784BC4003DCAA2 /* main.m in Sources */,
 				BE8442AA1C7871A6001D4AB7 /* JoinViewController.m in Sources */,

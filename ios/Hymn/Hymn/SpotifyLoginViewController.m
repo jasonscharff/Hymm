@@ -16,6 +16,7 @@
 #import "AutolayoutHelper.h"
 #import "ImageArrangedButton.h"
 #import "JoinOrCreateViewController.h"
+#import "RESTSessionManager+Auth.h"
 
 @interface SpotifyLoginViewController ()
 
@@ -100,6 +101,9 @@
 
 -(void)setSession:(SPTSession *)session {
   _session = session;
+  
+  [[RESTSessionManager sharedSessionManager]loginWithSession:session];
+  
   UINavigationController *navController = [[UINavigationController alloc]init];
   navController.navigationBar.translucent = NO;
   
