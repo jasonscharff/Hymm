@@ -19,7 +19,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Socket.IO-Client-Swift.xcscheme</key>
+		<key>SocketRocket.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>libPusher.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8ABFEE4DA418C1084DFC81BCA38319B7</key>
+		<key>3E0ACD0F6B92993E7826475920880526</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2DB70FD8C48DDEEB105C0409AB8B593</key>
+		<key>9716A3E77A4A1436A83ED9BB5E9E08A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF5324A624D98F397EA9532EB4E631C4</key>
+		<key>A30828E5D8B1AC04C6E182C307D72E9A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DC77443F613D14EAB8AE29880911F4F6</key>
+		<key>CB6F885CB9D3E8E3D93152A5C3421259</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F5791FBAE13BE7018C17876173C0C411</key>
 		<dict>
 			<key>primary</key>
 			<true/>

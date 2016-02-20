@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A836C41C78D30B9FDAFADE69 /* Pods_Hymn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CC60F95DC73E402DAAB9473D /* Pods_Hymn.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		3DDE1256B7BC1E0668DA0BF2 /* libPods-Hymn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 304A0C49D31A84FA527A30FA /* libPods-Hymn.a */; };
 		BE728F751C784BC4003DCAA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE728F741C784BC4003DCAA2 /* main.m */; };
 		BE728F781C784BC4003DCAA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE728F771C784BC4003DCAA2 /* AppDelegate.m */; };
 		BE728F7B1C784BC4003DCAA2 /* SpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE728F7A1C784BC4003DCAA2 /* SpotifyLoginViewController.m */; };
@@ -32,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		304A0C49D31A84FA527A30FA /* libPods-Hymn.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Hymn.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5012577BAEAA76F464D509D6 /* Pods-Hymn.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hymn.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hymn/Pods-Hymn.debug.xcconfig"; sourceTree = "<group>"; };
 		B81674B61581F4FC4433A224 /* Pods-Hymn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hymn.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hymn/Pods-Hymn.release.xcconfig"; sourceTree = "<group>"; };
 		BE728F701C784BC4003DCAA2 /* Hymn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hymn.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,7 +75,6 @@
 		BE8442AF1C787A30001D4AB7 /* BottomBorderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBorderTextField.m; sourceTree = "<group>"; };
 		BE8442B11C789B4B001D4AB7 /* RESTSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESTSessionManager.h; sourceTree = "<group>"; };
 		BE8442B21C789B4B001D4AB7 /* RESTSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESTSessionManager.m; sourceTree = "<group>"; };
-		CC60F95DC73E402DAAB9473D /* Pods_Hymn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hymn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +84,8 @@
 			files = (
 				BE728F8F1C785148003DCAA2 /* SystemConfiguration.framework in Frameworks */,
 				BE728F8D1C785141003DCAA2 /* AVFoundation.framework in Frameworks */,
-				A836C41C78D30B9FDAFADE69 /* Pods_Hymn.framework in Frameworks */,
 				BE728F8B1C784D7E003DCAA2 /* Spotify.framework in Frameworks */,
+				3DDE1256B7BC1E0668DA0BF2 /* libPods-Hymn.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +208,7 @@
 				BE728F8E1C785148003DCAA2 /* SystemConfiguration.framework */,
 				BE728F8C1C785141003DCAA2 /* AVFoundation.framework */,
 				BE728F8A1C784D7E003DCAA2 /* Spotify.framework */,
-				CC60F95DC73E402DAAB9473D /* Pods_Hymn.framework */,
+				304A0C49D31A84FA527A30FA /* libPods-Hymn.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

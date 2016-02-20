@@ -80,14 +80,3 @@ strip_invalid_archs() {
   fi
 }
 
-
-if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-Hymn/AFNetworking.framework"
-  install_framework "Pods-Hymn/JNKeychain.framework"
-  install_framework "Pods-Hymn/SocketIOClientSwift.framework"
-fi
-if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-Hymn/AFNetworking.framework"
-  install_framework "Pods-Hymn/JNKeychain.framework"
-  install_framework "Pods-Hymn/SocketIOClientSwift.framework"
-fi
