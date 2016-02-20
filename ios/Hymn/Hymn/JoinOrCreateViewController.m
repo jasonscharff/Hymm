@@ -8,6 +8,10 @@
 
 #import "JoinOrCreateViewController.h"
 
+#import "AutolayoutHelper.h"
+
+#import "JoinViewController.h"
+
 @interface JoinOrCreateViewController ()
 
 @end
@@ -15,15 +19,52 @@
 @implementation JoinOrCreateViewController
 
 - (void)viewDidLoad {
+  [super viewDidLoad];
+  self.view.backgroundColor = [UIColor whiteColor];
+  
+  UIFont *font = [UIFont fontWithName:@"AvenirNext-Regular" size:32];
+  
+  UIButton *joinButton = [[UIButton alloc]init];
+  [joinButton setTitle:@"Join" forState:UIControlStateNormal];
+  [joinButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+  joinButton.titleLabel.font = font;
+  [joinButton addTarget:self action:@selector(joinSpace:) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIButton *createButton = [[UIButton alloc]init];
+  [createButton setTitle:@"Create" forState:UIControlStateNormal];
+  [createButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+  createButton.titleLabel.font = font;
+  [createButton addTarget:self action:@selector(createSpace:) forControlEvents:UIControlEventTouchUpInside];
+  
+  UIView *separator = [UIView new];
+  separator.backgroundColor = [UIColor lightGrayColor];
   
   
+  NSNumber *onePixel = @(1/[UIScreen mainScreen].scale);
   
-    // Do any additional setup after loading the view.
+  [AutolayoutHelper configureView:self.view
+                        subViews:VarBindings(joinButton, createButton, separator)
+                        metrics:VarBindings(onePixel)
+                        constraints:@[@"H:|[separator]|",
+                                      @"H:|[joinButton]|",
+                                      @"H:|[createButton]|",
+                                      @"V:|[joinButton][separator(onePixel)][createButton(==joinButton)]|"]];
+  
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(IBAction)createSpace:(id)sender {
+  
+}
+
+-(IBAction)joinSpace:(id)sender {
+  JoinViewController *joinVC = [[JoinViewController alloc]init];
+  [self.navigationController pushViewController:joinVC animated:YES];
 }
 
 /*

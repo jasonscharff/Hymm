@@ -21,6 +21,8 @@
 		BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */; };
 		BE8442A71C7870D8001D4AB7 /* JoinOrCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A61C7870D8001D4AB7 /* JoinOrCreateViewController.m */; };
 		BE8442AA1C7871A6001D4AB7 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A91C7871A6001D4AB7 /* JoinViewController.m */; };
+		BE8442AD1C7879A9001D4AB7 /* QRCodeScannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442AC1C7879A9001D4AB7 /* QRCodeScannerViewController.m */; };
+		BE8442B01C787A30001D4AB7 /* BottomBorderTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442AF1C787A30001D4AB7 /* BottomBorderTextField.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,10 @@
 		BE8442A61C7870D8001D4AB7 /* JoinOrCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinOrCreateViewController.m; sourceTree = "<group>"; };
 		BE8442A81C7871A6001D4AB7 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
 		BE8442A91C7871A6001D4AB7 /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
+		BE8442AB1C7879A9001D4AB7 /* QRCodeScannerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeScannerViewController.h; sourceTree = "<group>"; };
+		BE8442AC1C7879A9001D4AB7 /* QRCodeScannerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeScannerViewController.m; sourceTree = "<group>"; };
+		BE8442AE1C787A30001D4AB7 /* BottomBorderTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BottomBorderTextField.h; sourceTree = "<group>"; };
+		BE8442AF1C787A30001D4AB7 /* BottomBorderTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomBorderTextField.m; sourceTree = "<group>"; };
 		CC60F95DC73E402DAAB9473D /* Pods_Hymn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hymn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +146,8 @@
 				BE8442A61C7870D8001D4AB7 /* JoinOrCreateViewController.m */,
 				BE8442A81C7871A6001D4AB7 /* JoinViewController.h */,
 				BE8442A91C7871A6001D4AB7 /* JoinViewController.m */,
+				BE8442AB1C7879A9001D4AB7 /* QRCodeScannerViewController.h */,
+				BE8442AC1C7879A9001D4AB7 /* QRCodeScannerViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -147,6 +155,8 @@
 		BE8442A41C78611B001D4AB7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BE8442AE1C787A30001D4AB7 /* BottomBorderTextField.h */,
+				BE8442AF1C787A30001D4AB7 /* BottomBorderTextField.m */,
 				BE8442A11C786116001D4AB7 /* ImageArrangedButton.h */,
 				BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */,
 			);
@@ -285,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE8442B01C787A30001D4AB7 /* BottomBorderTextField.m in Sources */,
 				BE84429D1C785DB8001D4AB7 /* AutolayoutHelper.m in Sources */,
 				BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */,
 				BE728F7B1C784BC4003DCAA2 /* SpotifyLoginViewController.m in Sources */,
@@ -293,6 +304,7 @@
 				BE728F751C784BC4003DCAA2 /* main.m in Sources */,
 				BE8442AA1C7871A6001D4AB7 /* JoinViewController.m in Sources */,
 				BE84429E1C785DB8001D4AB7 /* LinearLayout.m in Sources */,
+				BE8442AD1C7879A9001D4AB7 /* QRCodeScannerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

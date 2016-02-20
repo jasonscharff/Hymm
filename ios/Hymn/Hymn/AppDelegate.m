@@ -25,22 +25,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
   self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
- 
-  self.navigationController = [[UINavigationController alloc]init];
-  self.navigationController.navigationBar.translucent = NO;
-  
-  [self.navigationController.navigationBar setTitleTextAttributes:
-   @{NSForegroundColorAttributeName:[UIColor blackColor],
-     NSFontAttributeName:[UIFont fontWithName:@"AvenirNext-Regular" size:21]}];
-  
-  
-  self.navigationController.navigationItem.title = @"Hymn";
-  
   self.spotifyHandler = [[SpotifyLoginViewController alloc]init];
-//  self.window.rootViewController = self.navigationController;
   self.window.rootViewController = self.spotifyHandler;
   [self.window makeKeyAndVisible];
- // [self.navigationController pushViewController:self.spotifyHandler animated:NO];
   
   return YES;
 }

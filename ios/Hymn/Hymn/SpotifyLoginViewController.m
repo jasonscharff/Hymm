@@ -15,6 +15,7 @@
 #import "AppDelegate.h"
 #import "AutolayoutHelper.h"
 #import "ImageArrangedButton.h"
+#import "JoinOrCreateViewController.h"
 
 @interface SpotifyLoginViewController ()
 
@@ -99,7 +100,19 @@
 
 -(void)setSession:(SPTSession *)session {
   _session = session;
-  //go to next view.
+  UINavigationController *navController = [[UINavigationController alloc]init];
+  navController.navigationBar.translucent = NO;
+  
+  [navController.navigationBar setTitleTextAttributes:
+   @{NSForegroundColorAttributeName:[UIColor blackColor],
+     NSFontAttributeName:[UIFont fontWithName:@"AvenirNext-Regular" size:21]}];
+  
+    self.navigationController.navigationItem.title = @"Hymn";
+  
+  JoinOrCreateViewController *nextVC = [[JoinOrCreateViewController alloc]init];
+  [navController pushViewController:nextVC animated:NO];
+  [self presentViewController:navController animated:YES completion:nil];
+  
 }
 
 
