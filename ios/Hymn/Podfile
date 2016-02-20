@@ -2,6 +2,7 @@
 # platform :ios, '6.0'
 
 target 'Hymn’ do
+pod 'AFNetworking'
 use_frameworks!
 pod 'Socket.IO-Client-Swift'
 end
