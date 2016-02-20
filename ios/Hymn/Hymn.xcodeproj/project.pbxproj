@@ -16,6 +16,11 @@
 		BE728F8B1C784D7E003DCAA2 /* Spotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8A1C784D7E003DCAA2 /* Spotify.framework */; };
 		BE728F8D1C785141003DCAA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8C1C785141003DCAA2 /* AVFoundation.framework */; };
 		BE728F8F1C785148003DCAA2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8E1C785148003DCAA2 /* SystemConfiguration.framework */; };
+		BE84429D1C785DB8001D4AB7 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */; };
+		BE84429E1C785DB8001D4AB7 /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429C1C785DB8001D4AB7 /* LinearLayout.m */; };
+		BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */; };
+		BE8442A71C7870D8001D4AB7 /* JoinOrCreateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A61C7870D8001D4AB7 /* JoinOrCreateViewController.m */; };
+		BE8442AA1C7871A6001D4AB7 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A91C7871A6001D4AB7 /* JoinViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +40,16 @@
 		BE728F8E1C785148003DCAA2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		BE728F921C7853CA003DCAA2 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
 		BE728F931C7854FD003DCAA2 /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Hymn-ftuoxxdwmkmiyzbqprpslwteyfdf/Build/Products/Debug-iphonesimulator/SocketIOClientSwift.framework"; sourceTree = "<group>"; };
+		BE8442991C785DB8001D4AB7 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
+		BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
+		BE84429B1C785DB8001D4AB7 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
+		BE84429C1C785DB8001D4AB7 /* LinearLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinearLayout.m; sourceTree = "<group>"; };
+		BE8442A11C786116001D4AB7 /* ImageArrangedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageArrangedButton.h; sourceTree = "<group>"; };
+		BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageArrangedButton.m; sourceTree = "<group>"; };
+		BE8442A51C7870D8001D4AB7 /* JoinOrCreateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinOrCreateViewController.h; sourceTree = "<group>"; };
+		BE8442A61C7870D8001D4AB7 /* JoinOrCreateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinOrCreateViewController.m; sourceTree = "<group>"; };
+		BE8442A81C7871A6001D4AB7 /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
+		BE8442A91C7871A6001D4AB7 /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
 		CC60F95DC73E402DAAB9473D /* Pods_Hymn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hymn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,10 +98,11 @@
 		BE728F721C784BC4003DCAA2 /* Hymn */ = {
 			isa = PBXGroup;
 			children = (
+				BE84429F1C785DBE001D4AB7 /* AutoLayoutHelper */,
 				BE728F761C784BC4003DCAA2 /* AppDelegate.h */,
 				BE728F771C784BC4003DCAA2 /* AppDelegate.m */,
-				BE728F791C784BC4003DCAA2 /* SpotifyLoginViewController.h */,
-				BE728F7A1C784BC4003DCAA2 /* SpotifyLoginViewController.m */,
+				BE8442A41C78611B001D4AB7 /* View */,
+				BE8442A01C785DC7001D4AB7 /* ViewController */,
 				BE728F7F1C784BC4003DCAA2 /* Assets.xcassets */,
 				BE728F811C784BC4003DCAA2 /* LaunchScreen.storyboard */,
 				BE728F841C784BC4003DCAA2 /* Info.plist */,
@@ -102,6 +118,39 @@
 				BE728F741C784BC4003DCAA2 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE84429F1C785DBE001D4AB7 /* AutoLayoutHelper */ = {
+			isa = PBXGroup;
+			children = (
+				BE8442991C785DB8001D4AB7 /* AutolayoutHelper.h */,
+				BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */,
+				BE84429B1C785DB8001D4AB7 /* LinearLayout.h */,
+				BE84429C1C785DB8001D4AB7 /* LinearLayout.m */,
+			);
+			name = AutoLayoutHelper;
+			sourceTree = "<group>";
+		};
+		BE8442A01C785DC7001D4AB7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BE728F791C784BC4003DCAA2 /* SpotifyLoginViewController.h */,
+				BE728F7A1C784BC4003DCAA2 /* SpotifyLoginViewController.m */,
+				BE8442A51C7870D8001D4AB7 /* JoinOrCreateViewController.h */,
+				BE8442A61C7870D8001D4AB7 /* JoinOrCreateViewController.m */,
+				BE8442A81C7871A6001D4AB7 /* JoinViewController.h */,
+				BE8442A91C7871A6001D4AB7 /* JoinViewController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		BE8442A41C78611B001D4AB7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BE8442A11C786116001D4AB7 /* ImageArrangedButton.h */,
+				BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		C9929004C1970E96129FE562 /* Frameworks */ = {
@@ -236,9 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE84429D1C785DB8001D4AB7 /* AutolayoutHelper.m in Sources */,
+				BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */,
 				BE728F7B1C784BC4003DCAA2 /* SpotifyLoginViewController.m in Sources */,
+				BE8442A71C7870D8001D4AB7 /* JoinOrCreateViewController.m in Sources */,
 				BE728F781C784BC4003DCAA2 /* AppDelegate.m in Sources */,
 				BE728F751C784BC4003DCAA2 /* main.m in Sources */,
+				BE8442AA1C7871A6001D4AB7 /* JoinViewController.m in Sources */,
+				BE84429E1C785DB8001D4AB7 /* LinearLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
