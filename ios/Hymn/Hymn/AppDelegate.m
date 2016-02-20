@@ -7,9 +7,14 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+
+#import <Spotify/Spotify.h>
+
+#import "SpotifyLoginViewController.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) SpotifyLoginViewController *spotifyHandler;
 
 @end
 
@@ -19,8 +24,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
   self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
-  ViewController *rootVC = [[ViewController alloc]init];
-  self.window.rootViewController = rootVC;
+  self.spotifyHandler = [[SpotifyLoginViewController alloc]init];
+  self.window.rootViewController = self.spotifyHandler;
   [self.window makeKeyAndVisible];
   
   
@@ -47,6 +52,30 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+
+-(BOOL)application:(UIApplication *)application
+           openURL:(NSURL *)url
+ sourceApplication:(NSString *)sourceApplication
+        annotation:(id)annotation {
+  
+  // Ask SPTAuth if the URL given is a Spotify authentication callback
+  if ([[SPTAuth defaultInstance] canHandleURL:url]) {
+    [[SPTAuth defaultInstance] handleAuthCallbackWithTriggeredAuthURL:url callback:^(NSError *error, SPTSession *session) {
+      
+      if (error != nil) {
+        NSLog(@"*** Auth error: %@", error);
+        return;
+      }
+      
+      // Call the -playUsingSession: method to play a track
+      self.spotifyHandler.session = session;
+    }];
+    return YES;
+  }
+  
+  return NO;
 }
 
 @end
