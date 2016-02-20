@@ -14,14 +14,17 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - JNKeychain (0.1.4)
   - Socket.IO-Client-Swift (5.4.1)
 
 DEPENDENCIES:
   - AFNetworking
+  - JNKeychain
   - Socket.IO-Client-Swift
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  JNKeychain: fb6cc9ec95959ba46cd95d0ee6f7a05e41da9f42
   Socket.IO-Client-Swift: ad65f1437dd97c4ac01e2e506386fafc3de2ece1
 
 COCOAPODS: 0.39.0.beta.4

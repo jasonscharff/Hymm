@@ -3,6 +3,7 @@
 
 target 'Hymn’ do
 pod 'AFNetworking'
+pod 'JNKeychain'
 use_frameworks!
 pod 'Socket.IO-Client-Swift'
 end

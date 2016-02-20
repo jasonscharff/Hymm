@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JNKeychain.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Hymn.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -22,17 +27,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>42B99601447CD9B4FAF38B5853749E4C</key>
+		<key>8ABFEE4DA418C1084DFC81BCA38319B7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A65303242E206F6678A25A31B9A720AC</key>
+		<key>A2DB70FD8C48DDEEB105C0409AB8B593</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB65A620A0D53883F3AC4A6AEDD6C335</key>
+		<key>BF5324A624D98F397EA9532EB4E631C4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DC77443F613D14EAB8AE29880911F4F6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
