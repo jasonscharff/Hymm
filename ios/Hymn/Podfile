@@ -4,5 +4,6 @@
 target 'Hymn’ do
 pod 'AFNetworking'
 pod 'JNKeychain'
-pod 'libPusher'
+use_frameworks!
+pod 'Socket.IO-Client-Swift'
 end

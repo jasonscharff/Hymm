@@ -15,21 +15,16 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - JNKeychain (0.1.4)
-  - libPusher (1.6.1):
-    - libPusher/Core (= 1.6.1)
-  - libPusher/Core (1.6.1):
-    - SocketRocket (= 0.4.1)
-  - SocketRocket (0.4.1)
+  - Socket.IO-Client-Swift (5.4.1)
 
 DEPENDENCIES:
   - AFNetworking
   - JNKeychain
-  - libPusher
+  - Socket.IO-Client-Swift
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   JNKeychain: fb6cc9ec95959ba46cd95d0ee6f7a05e41da9f42
-  libPusher: 5ea58aeb83fa4ac1f5d8ef8543b1def6ace997b8
-  SocketRocket: ee0b5c34182d37bb4f1f8d628bbe737718126daa
+  Socket.IO-Client-Swift: ad65f1437dd97c4ac01e2e506386fafc3de2ece1
 
 COCOAPODS: 0.39.0.beta.4
