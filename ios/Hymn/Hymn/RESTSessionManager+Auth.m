@@ -7,7 +7,11 @@
 //
 
 #import "RESTSessionManager+Auth.h"
+
+#import "Constants.h"
+
 #import <Spotify/Spotify.h>
+#import <JNKeychain/JNKeychain.h>
 
 @implementation RESTSessionManager(Auth)
 
@@ -15,7 +19,7 @@
   NSDictionary *parameters = @{@"username" : session.canonicalUsername,
                                @"access_token" : session.accessToken};
   [self POST:@"user/login" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-    NSLog(@"response object = %@", responseObject);
+    [JNKeychain saveValue:responseObject[@"auth_token"] forKey:AUTH_TOKEN_KEY];
     
   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
     NSLog(@"error = %@", error);
