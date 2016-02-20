@@ -8,6 +8,8 @@
 
 #import "QRCodeScannerViewController.h"
 
+#import "AutolayoutHelper.h"
+
 @import AVFoundation;
 
 @interface QRCodeScannerViewController () <AVCaptureMetadataOutputObjectsDelegate>
@@ -63,14 +65,15 @@
       [_captureSession stopRunning];
       
       UILabel *accessCodeLabel = [UILabel new];
-      accessCodeLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:25];
+      accessCodeLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:30];
       accessCodeLabel.text = string;
       accessCodeLabel.textColor = [UIColor whiteColor];
       
       accessCodeLabel.layer.shadowOpacity = 1.0;
       accessCodeLabel.layer.shadowRadius = 0.0;
       accessCodeLabel.layer.shadowColor = [UIColor blackColor].CGColor;
-      accessCodeLabel.layer.shadowOffset = CGSizeMake(0.0, -1.0);
+      accessCodeLabel.layer.shadowOffset = CGSizeMake(-1.0, -2.0);
+      accessCodeLabel.translatesAutoresizingMaskIntoConstraints = NO;
       
       NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:accessCodeLabel
                                                                 attribute:NSLayoutAttributeCenterX
@@ -79,6 +82,7 @@
                                                                 attribute:NSLayoutAttributeCenterX
                                                                 multiplier:1
                                                                 constant:0];
+      
       NSLayoutConstraint *centerY = [NSLayoutConstraint constraintWithItem:accessCodeLabel
                                                                 attribute:NSLayoutAttributeCenterY
                                                                 relatedBy:NSLayoutRelationEqual
@@ -87,17 +91,16 @@
                                                                multiplier:1
                                                                  constant:0];
       dispatch_async(dispatch_get_main_queue(), ^{
-     //   [self.view addSubview:accessCodeLabel];
-        accessCodeLabel.backgroundColor = [UIColor redColor];
-//        [self.view addConstraint:centerX];
-//        [self.view addConstraint:centerY];
+        [self.view addSubview:accessCodeLabel];
+        [self.view addConstraint:centerX];
+        [self.view addConstraint:centerY];
         [self.view layoutIfNeeded];
-    //    centerY.constant = (self.view.frame.size.height / 2 + accessCodeLabel.frame.size.height/2) * -1;
-        [UIView animateWithDuration:0.8 animations:^{
+        centerY.constant = (self.view.frame.size.height / 2 + accessCodeLabel.frame.size.height/2) * -1;
+        [UIView animateWithDuration:1.65 animations:^{
           [self.view layoutIfNeeded];
-     //     accessCodeLabel.transform = CGAffineTransformScale(accessCodeLabel.transform, 0.35, 0.35);
+          accessCodeLabel.transform = CGAffineTransformScale(accessCodeLabel.transform, 0.35, 0.35);
         } completion:^(BOOL finished) {
-        //  [self dismissSelfToNextView:NO];
+          [self dismissSelfToNextView:NO];
         }];
       });
     }

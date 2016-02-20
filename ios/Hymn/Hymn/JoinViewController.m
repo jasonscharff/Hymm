@@ -22,6 +22,8 @@
 
 @end
 
+static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
+
 @implementation JoinViewController
 
 - (void)viewDidLoad {
@@ -69,7 +71,7 @@
                                                            toItem:self.view
                                                            attribute:NSLayoutAttributeBottom
                                                            multiplier:1
-                                                           constant:-60];
+                                                           constant:-QRCODE_BUTTON_DISTANCE_FROM_BOTTOM];
   
   [self.view addConstraint:self.scanBottomConstraint];
   [self registerForNotifications];
@@ -97,15 +99,14 @@
 
 -(void)keyboardWillShow : (NSNotification *)notification {
   CGSize keyboardSize = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-  self.scanBottomConstraint.constant -= keyboardSize.height;
+  self.scanBottomConstraint.constant = -QRCODE_BUTTON_DISTANCE_FROM_BOTTOM - keyboardSize.height;
   [UIView animateWithDuration:0.2 animations:^{
     [self.view layoutIfNeeded];
   }];
 }
 
 -(void)keyboardWillHide : (NSNotification *)notification {
-  CGSize keyboardSize = [[notification.userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-  self.scanBottomConstraint.constant += keyboardSize.height;
+  self.scanBottomConstraint.constant = -QRCODE_BUTTON_DISTANCE_FROM_BOTTOM;
   [UIView animateWithDuration:0.2 animations:^{
     [self.view layoutIfNeeded];
   }];
