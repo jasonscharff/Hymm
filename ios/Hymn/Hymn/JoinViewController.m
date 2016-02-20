@@ -11,6 +11,7 @@
 #import "AutolayoutHelper.h"
 #import "BottomBorderTextField.h"
 #import "ImageArrangedButton.h"
+#import "QRCodeScannerViewController.h"
 
 @interface JoinViewController () <UITextFieldDelegate>
 
@@ -53,6 +54,7 @@
   scanButton.imageView.image =[UIImage imageNamed:@"camera"];
   scanButton.caption.font = [UIFont fontWithName:@"AvenirNext-Regular" size:22];
   scanButton.caption.text = @"Scan QR Code";
+  [scanButton addTarget:self action:@selector(scanQRCode:) forControlEvents:UIControlEventTouchDown];
   
   [AutolayoutHelper configureView:self.view
                          subViews:VarBindings(_accessCodeField, _submitButton, scanButton)
@@ -71,6 +73,12 @@
   
   [self.view addConstraint:self.scanBottomConstraint];
   [self registerForNotifications];
+  
+}
+
+-(IBAction)scanQRCode:(id)sender {
+  QRCodeScannerViewController *qrVC = [[QRCodeScannerViewController alloc]init];
+  [self presentViewController:qrVC animated:YES completion:nil];
   
 }
 
