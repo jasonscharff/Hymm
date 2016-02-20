@@ -10,7 +10,9 @@
 
 #import "AutolayoutHelper.h"
 
+#import "CreateViewController.h"
 #import "JoinViewController.h"
+#import "RESTSessionManager+Space.h"
 
 @interface JoinOrCreateViewController ()
 
@@ -59,7 +61,11 @@
 
 
 -(IBAction)createSpace:(id)sender {
-  
+  [[RESTSessionManager sharedSessionManager]createSpace:^(NSString *spaceIdentifier) {
+    CreateViewController *createVC = [[CreateViewController alloc]init];
+    createVC.code = spaceIdentifier;
+    [self.navigationController pushViewController:createVC animated:YES];
+  }];
 }
 
 -(IBAction)joinSpace:(id)sender {

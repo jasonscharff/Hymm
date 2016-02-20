@@ -12,5 +12,6 @@
 @interface RESTSessionManager(Space)
 
 -(void)joinSpaceWithIdentifier : (NSString *)identifier;
+-(void)createSpace : (void (^)(NSString * spaceIdentifier))completion;
 
 @end
