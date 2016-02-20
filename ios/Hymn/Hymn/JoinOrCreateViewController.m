@@ -73,6 +73,10 @@
                                    initWithTitle: @"Back"
                                    style: UIBarButtonItemStylePlain
                                    target: nil action: nil];
+    [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                       [UIFont fontWithName:@"AvenirNext-Regular" size:18.0], NSFontAttributeName,
+                                       [UIColor blackColor], NSForegroundColorAttributeName,
+                                       nil] forState:UIControlStateNormal];
     
     [self.navigationItem setBackBarButtonItem: backButton];
     [self.navigationController pushViewController:createVC animated:YES];
@@ -85,6 +89,12 @@
                                  initWithTitle: @"Back"
                                  style: UIBarButtonItemStylePlain
                                  target: nil action: nil];
+  
+  [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIFont fontWithName:@"AvenirNext-Regular" size:18.0], NSFontAttributeName,
+                                      [UIColor blackColor], NSForegroundColorAttributeName,
+                                      nil] forState:UIControlStateNormal];
+  
   
   [self.navigationItem setBackBarButtonItem: backButton];
   [self.navigationController pushViewController:joinVC animated:YES];

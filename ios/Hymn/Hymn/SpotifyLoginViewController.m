@@ -107,7 +107,7 @@
   
   UINavigationController *navController = [[UINavigationController alloc]init];
   navController.navigationBar.barTintColor = [UIColor navbarColor];
-  navController.navigationBar.tintColor = [UIColor whiteColor];
+  navController.navigationBar.tintColor = [UIColor blackColor];
   navController.navigationBar.translucent = NO;
   
   [navController.navigationBar setTitleTextAttributes:

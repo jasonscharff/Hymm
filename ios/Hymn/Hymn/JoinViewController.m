@@ -105,7 +105,12 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
   qrVC.previousVC = self;
   UINavigationController *nav = [[UINavigationController alloc]init];
   nav.navigationBar.barTintColor = [UIColor navbarColor];
-  nav.navigationBar.tintColor = [UIColor whiteColor];
+  nav.navigationBar.tintColor = [UIColor blackColor];
+  
+  [nav.navigationBar setTitleTextAttributes:
+   @{NSForegroundColorAttributeName:[UIColor blackColor],
+     NSFontAttributeName:[UIFont fontWithName:@"AvenirNext-Regular" size:21]}];
+  
   [nav pushViewController:qrVC animated:NO];
   [self presentViewController:nav animated:YES completion:nil];
   
