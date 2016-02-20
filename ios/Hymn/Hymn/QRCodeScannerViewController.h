@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JoinViewController.h"
 
 @interface QRCodeScannerViewController : UIViewController
+
+@property (nonatomic, strong) JoinViewController *previousVC;
 
 @end

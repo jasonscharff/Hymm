@@ -8,9 +8,12 @@
 
 #import "JoinViewController.h"
 
+#import "Constants.h"
+
 #import "AutolayoutHelper.h"
 #import "BottomBorderTextField.h"
 #import "ImageArrangedButton.h"
+#import "RESTSessionManager+Space.h"
 #import "QRCodeScannerViewController.h"
 
 @interface JoinViewController () <UITextFieldDelegate>
@@ -40,6 +43,7 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
   _accessCodeField.placeholder = @"Enter your access code.";
   _accessCodeField.font = [UIFont fontWithName:@"AvenirNext-Regular" size:25];
   _accessCodeField.delegate = self;
+  _accessCodeField.returnKeyType = UIReturnKeyGo;
   _accessCodeField.textAlignment = NSTextAlignmentCenter;
   [_accessCodeField addTarget:self
                 action:@selector(textFieldDidChange:)
@@ -51,6 +55,7 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
   [_submitButton setTitle:@"Submit" forState:UIControlStateNormal];
   [_submitButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
   _submitButton.titleLabel.font = buttonFont;
+  [_submitButton addTarget:self action:@selector(submitSpaceIdentifier:) forControlEvents:UIControlEventTouchDown];
   
   ImageArrangedButton *scanButton = [[ImageArrangedButton alloc]init];
   scanButton.imageView.image =[UIImage imageNamed:@"camera"];
@@ -78,10 +83,29 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
   
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+  if(_shouldBeginWithInvalidSpaceMessage) {
+    [self invalidSpaceName:nil];
+    _shouldBeginWithInvalidSpaceMessage = NO;
+  }
+}
+
+-(IBAction)submitSpaceIdentifier:(id)sender {
+  [[RESTSessionManager sharedSessionManager]joinSpaceWithIdentifier:self.accessCodeField.text];
+}
+
 -(IBAction)scanQRCode:(id)sender {
   QRCodeScannerViewController *qrVC = [[QRCodeScannerViewController alloc]init];
-  [self presentViewController:qrVC animated:YES completion:nil];
+  qrVC.previousVC = self;
+  UINavigationController *nav = [[UINavigationController alloc]init];
+  [nav pushViewController:qrVC animated:NO];
+  [self presentViewController:nav animated:YES completion:nil];
   
+}
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+  [self submitSpaceIdentifier:self];
+  return YES;
 }
 
 -(void)textFieldDidChange : (UITextField *)textField {
@@ -114,7 +138,9 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
 
 - (void)registerForNotifications {
   self.observingNotifications = @{UIKeyboardWillShowNotification : @"keyboardWillShow:",
-                                  UIKeyboardWillHideNotification : @"keyboardWillHide:"};
+                                  UIKeyboardWillHideNotification : @"keyboardWillHide:",
+                                  HAS_JOINED_SPACE : @"hasJoinedSpace:",
+                                  INVALID_SPACE_NAME_NOTIFICATION : @"invalidSpaceName:"};
   
   [self.observingNotifications enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -140,6 +166,16 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)hasJoinedSpace : (NSNotification *)notification {
+  
+}
+
+-(void)invalidSpaceName : (NSNotification *)notification {
+  UIAlertController *alertView = [UIAlertController alertControllerWithTitle:@"Invalid Space Name" message:@"The space name provided does not match a current space. Please confirm the name you recieved is correct and try again." preferredStyle:UIAlertControllerStyleAlert];
+  [alertView addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+  [self presentViewController:alertView animated:YES completion:nil];
 }
 
 /*

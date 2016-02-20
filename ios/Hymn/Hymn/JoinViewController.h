@@ -10,4 +10,6 @@
 
 @interface JoinViewController : UIViewController
 
+@property (nonatomic)BOOL shouldBeginWithInvalidSpaceMessage;
+
 @end

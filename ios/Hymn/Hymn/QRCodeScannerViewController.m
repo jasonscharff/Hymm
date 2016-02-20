@@ -8,7 +8,10 @@
 
 #import "QRCodeScannerViewController.h"
 
-#import "AutolayoutHelper.h"
+#import "Constants.h"
+
+#import "RESTSessionManager+Space.h"
+
 
 @import AVFoundation;
 
@@ -18,17 +21,32 @@
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 @property (nonatomic, strong) UIView *videoPreviewView;
 
+@property (nonnull, strong) NSDictionary *observingNotifications;
+
+@property (nonatomic) BOOL didJoinSpace;
+
 @end
 
 @implementation QRCodeScannerViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  [super viewDidLoad];
+  [self registerForNotifications];
+  [self configureNavBar];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
   [self startReading];
+}
+
+-(void)configureNavBar {
+  UIBarButtonItem *flipButton = [[UIBarButtonItem alloc]
+                                 initWithTitle:@"Cancel"
+                                 style:UIBarButtonItemStyleDone
+                                 target:self
+                                 action:@selector(dismissView:)];
+  
+  self.navigationItem.leftBarButtonItem = flipButton;
 }
 
 -(void)startReading {
@@ -62,6 +80,7 @@
     AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
     if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
       NSString *string = metadataObj.stringValue;
+      [[RESTSessionManager sharedSessionManager]joinSpaceWithIdentifier:string];
       [_captureSession stopRunning];
       
       UILabel *accessCodeLabel = [UILabel new];
@@ -96,11 +115,11 @@
         [self.view addConstraint:centerY];
         [self.view layoutIfNeeded];
         centerY.constant = (self.view.frame.size.height / 2 + accessCodeLabel.frame.size.height/2) * -1;
-        [UIView animateWithDuration:1.65 animations:^{
+        [UIView animateWithDuration:1.5 animations:^{
           [self.view layoutIfNeeded];
           accessCodeLabel.transform = CGAffineTransformScale(accessCodeLabel.transform, 0.35, 0.35);
         } completion:^(BOOL finished) {
-          [self dismissSelfToNextView:NO];
+          [self dismissSelfToNextView:self.didJoinSpace];
         }];
       });
     }
@@ -114,12 +133,52 @@
   if(!continueToNextView) {
     [self dismissViewControllerAnimated:YES completion:nil];
   }
-  //Go back to the previous view.
+  else {
+    //Go back to a previous view.
+  }
+}
+
+-(void)dismissView : (UIBarButtonItem *)barButtonItem {
+  [self dismissSelfToNextView:NO];
+}
+
+- (void)registerForNotifications {
+  self.observingNotifications = @{HAS_JOINED_SPACE : @"hasJoinedSpace:",
+                                  INVALID_SPACE_NAME_NOTIFICATION : @"invalidSpaceName:"};
+  
+  [self.observingNotifications enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:NSSelectorFromString(obj)
+                                                 name:key
+                                               object:nil];
+    
+  }];
+}
+
+- (void)unregisterForNotifications {
+  for (NSString *key in self.observingNotifications) {
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:key
+                                                  object:nil];
+  }
+}
+
+-(void)dealloc {
+  [self unregisterForNotifications];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)hasJoinedSpace : (NSNotification *)notification {
+  self.didJoinSpace = YES;
+}
+
+-(void)invalidSpaceName : (NSNotification *)notification {
+  self.didJoinSpace = NO;
+  self.previousVC.shouldBeginWithInvalidSpaceMessage = YES;
 }
 
 /*

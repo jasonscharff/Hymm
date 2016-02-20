@@ -17,6 +17,7 @@
 		BE728F8D1C785141003DCAA2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8C1C785141003DCAA2 /* AVFoundation.framework */; };
 		BE728F8F1C785148003DCAA2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE728F8E1C785148003DCAA2 /* SystemConfiguration.framework */; };
 		BE7A6AD61C789D5800479E80 /* RESTSessionManager+Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7A6AD51C789D5800479E80 /* RESTSessionManager+Auth.m */; };
+		BE7A6AD91C78A95B00479E80 /* RESTSessionManager+Space.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7A6AD81C78A95B00479E80 /* RESTSessionManager+Space.m */; };
 		BE84429D1C785DB8001D4AB7 /* AutolayoutHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */; };
 		BE84429E1C785DB8001D4AB7 /* LinearLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = BE84429C1C785DB8001D4AB7 /* LinearLayout.m */; };
 		BE8442A31C786116001D4AB7 /* ImageArrangedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BE8442A21C786116001D4AB7 /* ImageArrangedButton.m */; };
@@ -46,6 +47,8 @@
 		BE728F931C7854FD003DCAA2 /* SocketIOClientSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIOClientSwift.framework; path = "../../../../Library/Developer/Xcode/DerivedData/Hymn-ftuoxxdwmkmiyzbqprpslwteyfdf/Build/Products/Debug-iphonesimulator/SocketIOClientSwift.framework"; sourceTree = "<group>"; };
 		BE7A6AD41C789D5800479E80 /* RESTSessionManager+Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RESTSessionManager+Auth.h"; sourceTree = "<group>"; };
 		BE7A6AD51C789D5800479E80 /* RESTSessionManager+Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RESTSessionManager+Auth.m"; sourceTree = "<group>"; };
+		BE7A6AD71C78A95B00479E80 /* RESTSessionManager+Space.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RESTSessionManager+Space.h"; sourceTree = "<group>"; };
+		BE7A6AD81C78A95B00479E80 /* RESTSessionManager+Space.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RESTSessionManager+Space.m"; sourceTree = "<group>"; };
 		BE8442991C785DB8001D4AB7 /* AutolayoutHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutolayoutHelper.h; sourceTree = "<group>"; };
 		BE84429A1C785DB8001D4AB7 /* AutolayoutHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutolayoutHelper.m; sourceTree = "<group>"; };
 		BE84429B1C785DB8001D4AB7 /* LinearLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearLayout.h; sourceTree = "<group>"; };
@@ -177,6 +180,8 @@
 				BE8442B21C789B4B001D4AB7 /* RESTSessionManager.m */,
 				BE7A6AD41C789D5800479E80 /* RESTSessionManager+Auth.h */,
 				BE7A6AD51C789D5800479E80 /* RESTSessionManager+Auth.m */,
+				BE7A6AD71C78A95B00479E80 /* RESTSessionManager+Space.h */,
+				BE7A6AD81C78A95B00479E80 /* RESTSessionManager+Space.m */,
 			);
 			name = Networking;
 			sourceTree = "<group>";
@@ -323,6 +328,7 @@
 				BE728F781C784BC4003DCAA2 /* AppDelegate.m in Sources */,
 				BE728F751C784BC4003DCAA2 /* main.m in Sources */,
 				BE8442AA1C7871A6001D4AB7 /* JoinViewController.m in Sources */,
+				BE7A6AD91C78A95B00479E80 /* RESTSessionManager+Space.m in Sources */,
 				BE84429E1C785DB8001D4AB7 /* LinearLayout.m in Sources */,
 				BE8442AD1C7879A9001D4AB7 /* QRCodeScannerViewController.m in Sources */,
 			);
