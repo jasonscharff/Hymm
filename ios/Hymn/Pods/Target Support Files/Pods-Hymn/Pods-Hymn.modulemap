@@ -1,0 +1,6 @@
+framework module Pods_Hymn {
+  umbrella header "Pods-Hymn-umbrella.h"
+
+  export *
+  module * { export * }
+}
