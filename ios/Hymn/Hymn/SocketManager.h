@@ -19,7 +19,8 @@
 @property (nonatomic, strong) SPTSession *spotifySession;
 @property (nonatomic, strong) SPTAudioStreamingController *player;
 @property (nonatomic, strong) NSURL *songURI;
-@property (nonatomic, strong) NSString *sessionURL;
+@property (nonatomic, strong) NSString *baseURL;
 @property (nonatomic, strong) SocketIOClient *socketIOClient;
+@property (nonatomic, strong) NSString *nsp;
 
 @end

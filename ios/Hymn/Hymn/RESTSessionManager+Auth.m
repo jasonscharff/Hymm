@@ -13,9 +13,12 @@
 #import <Spotify/Spotify.h>
 #import <JNKeychain/JNKeychain.h>
 
+#import "SocketManager.h"
+
 @implementation RESTSessionManager(Auth)
 
 -(void)loginWithSession:(SPTSession *)session {
+  [SocketManager sharedSocket].spotifySession = session;
   NSDictionary *parameters = @{@"username" : session.canonicalUsername,
                                @"access_token" : session.accessToken};
   [JNKeychain saveValue:session.accessToken forKey:SPOTIFY_AUTH_KEY];

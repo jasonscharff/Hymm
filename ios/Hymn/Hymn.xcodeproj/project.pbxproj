@@ -13,6 +13,7 @@
 		BE1647341C78FEA000FEF063 /* SpotifyRestSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1647331C78FEA000FEF063 /* SpotifyRestSessionManager.m */; };
 		BE1647371C78FFDB00FEF063 /* Song.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1647361C78FFDB00FEF063 /* Song.m */; };
 		BE16473B1C7901E400FEF063 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BE16473A1C7901E400FEF063 /* SearchResultTableViewCell.m */; };
+		BE583F0C1C79511B00387607 /* CurrentMusicController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE583F0B1C79511B00387607 /* CurrentMusicController.m */; };
 		BE728F751C784BC4003DCAA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BE728F741C784BC4003DCAA2 /* main.m */; };
 		BE728F781C784BC4003DCAA2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BE728F771C784BC4003DCAA2 /* AppDelegate.m */; };
 		BE728F7B1C784BC4003DCAA2 /* SpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE728F7A1C784BC4003DCAA2 /* SpotifyLoginViewController.m */; };
@@ -50,6 +51,8 @@
 		BE1647361C78FFDB00FEF063 /* Song.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Song.m; sourceTree = "<group>"; };
 		BE1647391C7901E400FEF063 /* SearchResultTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewCell.h; sourceTree = "<group>"; };
 		BE16473A1C7901E400FEF063 /* SearchResultTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewCell.m; sourceTree = "<group>"; };
+		BE583F0A1C79511B00387607 /* CurrentMusicController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentMusicController.h; sourceTree = "<group>"; };
+		BE583F0B1C79511B00387607 /* CurrentMusicController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentMusicController.m; sourceTree = "<group>"; };
 		BE728F701C784BC4003DCAA2 /* Hymn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hymn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE728F741C784BC4003DCAA2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BE728F761C784BC4003DCAA2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -188,6 +191,8 @@
 		BE8442A01C785DC7001D4AB7 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				BE583F0A1C79511B00387607 /* CurrentMusicController.h */,
+				BE583F0B1C79511B00387607 /* CurrentMusicController.m */,
 				BE16472F1C78FCDE00FEF063 /* SearchViewController.h */,
 				BE1647301C78FCDE00FEF063 /* SearchViewController.m */,
 				BE728F791C784BC4003DCAA2 /* SpotifyLoginViewController.h */,
@@ -377,6 +382,7 @@
 				BE16472E1C78EF7300FEF063 /* SocketManager.m in Sources */,
 				BE8442A71C7870D8001D4AB7 /* JoinOrCreateViewController.m in Sources */,
 				BE7A6AD61C789D5800479E80 /* RESTSessionManager+Auth.m in Sources */,
+				BE583F0C1C79511B00387607 /* CurrentMusicController.m in Sources */,
 				BE1647311C78FCDE00FEF063 /* SearchViewController.m in Sources */,
 				BE7A6AE21C78D6C400479E80 /* UIColor+ColorPalette.m in Sources */,
 				BE728F781C784BC4003DCAA2 /* AppDelegate.m in Sources */,
