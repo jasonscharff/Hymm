@@ -29,72 +29,74 @@ var next_song;
 var next_song_time = 0;
 var currentspt_time = 0;
 
-var userWithControl = process.argv[4];
 
 server.listen(ws_port);
 
 var options = {refreshRateMS: 50 , almostDoneMS: 10000};
 var timer = new Stopwatch();
+timer.stop();
 var song_length;
 
 var nsp = io.of('/' + space_id);
 console.log(space_id);
 
 nsp.on('connection', function(socket){
-	console.log('connection!');
+	console.log('New Connection!');
+
 	
-	socket.emit('seek', currentspt_time);
-	socket.emit('next_song', current_song);
+	setTimeout(function() {
+		console.log('New user, waiting half a second.');
+		nsp.emit('force_seek', (currentspt_time+2500));
+		console.log('Waited!');
+	}, 1500);
+
+	if (currentspt_time) {
+		nsp.emit('seek', currentspt_time);	
+	}
+	if (current_song) {
+		nsp.emit('next_song', current_song);	
+	}
 	
 	socket.on('time_update', function (data) {
-   		console.log(data);
-   		timer.reset(Math.abs(current_song_time-msg[0]));
+   		timer.reset(Math.abs(current_song_time-data));
    		timer.start();
 	});
 	
 	socket.on('chosen_song', function (data) {
-		console.log(data);
-		spotify.getTrack(data[0])
-		.then(function(spdata) {
-			console.log(data);
-			console.log('spdata',spdata);
-			current_song_time = spdata.body.duration_ms;
-			nsp.emit('next_song', data[0]);
-			
-			current_song = data[0];
-			
-			timer.reset(current_song_time);
-			timer.start();
-			
-		}, function(err) {
-			console.error(err);
+	
+		console.log("all: ", data);
+		console.log("uri: ", data.uri);
+		console.log("duration: ", data.duration);
+		
+		current_song_time = data.duration;
+		nsp.emit('next_song', data.uri);
+		
+		current_song = data.uri;
+		
+		timer.reset(current_song_time);
+		//timer.start();
+
 	});
 	
-});
+	socket.on('pause', function (data) {
+		timer.stop();
+   		nsp.emit('pause_song', true);
+	});
 	
-	
-});
+	socket.on('play', function (data) {
+		nsp.emit('force_seek', currentspt_time);	
+   		nsp.emit('play_song', true);
+   		timer.start();
+	});
 
-/*
-
-nsp.on('control_released', function (from, msg) {
-	//
-	nsp.emit('control_available', true);
-});
-
-nsp.on('secure_control', function (from,msg) {
 	
 });
-
-nsp.on('pause_track', function (from,msg) {
-	nsp.emit('pause', true);
-	timer.stop();
-});
-*/
+ 
 
 timer.onTime(function(time) {
-	console.log(time);
-	currentspt_time = Math.abs(time.ms-song_length);
+	currentspt_time = Math.abs(time.ms-current_song_time);
+	
+	
 	nsp.emit('seek', currentspt_time);
 });
 
