@@ -295,6 +295,7 @@
 				TargetAttributes = {
 					BE728F6F1C784BC4003DCAA2 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 3R5J785EXT;
 					};
 				};
 			};
@@ -509,6 +510,8 @@
 			baseConfigurationReference = 5012577BAEAA76F464D509D6 /* Pods-Hymn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -526,6 +529,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.Hymn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -534,6 +539,8 @@
 			baseConfigurationReference = B81674B61581F4FC4433A224 /* Pods-Hymn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -551,6 +558,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jasonscharff.Hymn;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

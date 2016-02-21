@@ -65,7 +65,7 @@
                                     @"H:|-20-[_titleLabel]-20-|",
                                     @"H:|-20-[_artistLabel]-20-|",
                                     @"X:_playpause.centerX == superview.centerX",
-                                    @"V:|[_albumArtwork][_progressView]-(<=25)-[_titleLabel]-[_artistLabel]-(>=8)-[_playpause]-(>=40)-|"]];
+                                    @"V:|[_albumArtwork][_progressView]-(<=35)-[_titleLabel]-[_artistLabel]-(>=8)-[_playpause]-(>=30)-|"]];
   
   NSLayoutConstraint *squareAlbum = [NSLayoutConstraint constraintWithItem:_albumArtwork
                                                                  attribute:NSLayoutAttributeHeight
