@@ -92,13 +92,18 @@
       CGFloat serverTime = [data[0]floatValue] / 1000.0f;
       NSLog(@"server time = %f", serverTime);
       if(!self.isInControl) {
-        if(ABS(self.player.currentPlaybackPosition - serverTime) > 0.5) {
+        if(ABS(self.player.currentPlaybackPosition - serverTime) > 0.3) {
           [self.player seekToOffset:serverTime callback:nil];
         }
         
       }
     }
     
+  }];
+  
+  [self.socketIOClient on:@"force_seek" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
+     CGFloat serverTime = [data[0]floatValue] / 1000.0f;
+    [self.player seekToOffset:serverTime callback:nil];
   }];
   
   [self.socketIOClient connect];
