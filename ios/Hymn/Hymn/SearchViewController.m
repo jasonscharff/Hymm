@@ -146,33 +146,33 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-  if([SocketManager sharedSocket].songURI) {
+//  if([SocketManager sharedSocket].songURI) {
     UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *playAction = [UIAlertAction actionWithTitle:@"Play now."
+    UIAlertAction *playAction = [UIAlertAction actionWithTitle:@"Play"
                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                             [self playSong:self.searchResults[indexPath.row]];
                                                           }];
     
-    UIAlertAction *queueAction = [UIAlertAction actionWithTitle:@"Add to queue"
-                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                                                             [self queueSong:self.searchResults[indexPath.row]];
-                                                           }];
+//    UIAlertAction *queueAction = [UIAlertAction actionWithTitle:@"Add to queue"
+//                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+//                                                             [self queueSong:self.searchResults[indexPath.row]];
+//                                                           }];
     UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
     
     [actionSheet addAction:playAction];
-    [actionSheet addAction:queueAction];
+//    [actionSheet addAction:queueAction];
     [actionSheet addAction:cancel];
     [self presentViewController:actionSheet animated:YES completion:nil];
     
-  }
-  else {
-    [self playSong:self.searchResults[indexPath.row]];
-  }
+//  }
+//  else {
+//    [self playSong:self.searchResults[indexPath.row]];
+//  }
 }
 
 -(void)playSong : (Song *)aSong {
   [[SocketManager sharedSocket]playSong:aSong];
-  self.tabBarController.selectedIndex = 2;
+  self.tabBarController.selectedIndex = 1;
 }
 
 -(void)queueSong : (Song *)aSong {
