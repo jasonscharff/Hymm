@@ -56,19 +56,17 @@
   [previous setBackgroundImage:[UIImage imageNamed:@"previous"] forState:UIControlStateNormal];
   [self setPlayPauseImage];
   
-  
-  UIStackView *stackView = [[UIStackView alloc]initWithArrangedSubviews:@[previous, _playpause, next]];
-  stackView.axis = UILayoutConstraintAxisHorizontal;
-  stackView.distribution = UIStackViewDistributionEqualCentering;
+//  stackView.axis = UILayoutConstraintAxisHorizontal;
+//  stackView.distribution = UIStackViewDistributionEqualCentering;
   
   [AutolayoutHelper configureView:self.view
-                         subViews:VarBindings(_albumArtwork, _titleLabel, _artistLabel, _progressView, stackView)
+                         subViews:VarBindings(_albumArtwork, _titleLabel, _artistLabel, _progressView, _playpause)
                       constraints:@[@"H:|[_albumArtwork]|",
                                     @"H:|[_progressView]|",
                                     @"H:|-20-[_titleLabel]-20-|",
                                     @"H:|-20-[_artistLabel]-20-|",
-                                    @"|-40-[stackView]-40-|",
-                                    @"V:|[_albumArtwork][_progressView]-(<=25)-[_titleLabel]-[_artistLabel]-(>=8)-[stackView]-(>=40)-|"]];
+                                    @"X:_playpause.centerX == superview.centerX",
+                                    @"V:|[_albumArtwork][_progressView]-(<=25)-[_titleLabel]-[_artistLabel]-(>=8)-[_playpause]-(>=40)-|"]];
   
   NSLayoutConstraint *squareAlbum = [NSLayoutConstraint constraintWithItem:_albumArtwork
                                                                  attribute:NSLayoutAttributeHeight
@@ -78,7 +76,6 @@
                                                                  multiplier:1 constant:0];
   
   [self.view addConstraint:squareAlbum];
-                            
   
 }
 
