@@ -155,8 +155,11 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
                                                            style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                                                              [self queueSong:self.searchResults[indexPath.row]];
                                                            }];
+    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+    
     [actionSheet addAction:playAction];
     [actionSheet addAction:queueAction];
+    [actionSheet addAction:cancel];
     [self presentViewController:actionSheet animated:YES completion:nil];
     
   }
