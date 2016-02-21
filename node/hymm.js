@@ -125,13 +125,14 @@ router.route('/user/space')
 							    args: [doc._id, share_id, req.user_name, port]
 							  }, function(err, apps) {
 							    pm2.disconnect();
+							    	console.log("New space created by: " + req.user_id + " [" + req.user_name +"]. Share id: " + share_id + ". Port: " + port);
+									var base_url = 'http://api.hymm.io:' + port;
+									res.json({success:true, space_id: '/'+doc._id, share_id: share_id, ws_port: port, base_url: base_url});
 							  });
 							}
 						});
 						
-						console.log("New space created by: " + req.user_id + " [" + req.user_name +"]. Share id: " + share_id + ". Port: " + port);
-						var base_url = 'http://api.hymm.io:' + port;
-						res.json({success:true, space_id: '/'+doc._id, share_id: share_id, ws_port: port, base_url: base_url});
+						
 					}
 				});
 			});
