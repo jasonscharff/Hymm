@@ -81,6 +81,11 @@
   
 }
 
+-(void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.tabBarController.title = @"Now Playing";
+}
+
 -(void)setPlayPauseImage {
   if([SocketManager sharedSocket].player.isPlaying) {
     [_playpause setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];

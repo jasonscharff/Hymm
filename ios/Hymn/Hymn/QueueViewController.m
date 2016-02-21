@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];
-  
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.tabBarController.title = @"Queue";
 }
 
 - (void)didReceiveMemoryWarning {

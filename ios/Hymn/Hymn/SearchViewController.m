@@ -36,7 +36,6 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
                                               green:240.0f/255.0f
                                                blue:241.0f/255.0f
                                               alpha:1];
-  self.title = @"Search Spotify";
   self.searchField = [[UITextField alloc]init];
   self.searchField.layer.sublayerTransform = CATransform3DMakeTranslation(15, 0, 0);
   self.searchField.placeholder = @"Search for your favorite song.";
@@ -84,6 +83,11 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
                        action:@selector(textFieldDidChange:)
              forControlEvents:UIControlEventEditingChanged];
   
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+  [super viewWillAppear:animated];
+  self.tabBarController.title = @"Search Spotify";
 }
 
 -(void)textFieldDidChange : (UITextField *)textField {
