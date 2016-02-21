@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Socket.IO-Client-Swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,22 +32,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8ABFEE4DA418C1084DFC81BCA38319B7</key>
+		<key>04853854B906DD7B8DDA1366FF883E86</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A537DDEE08E9422F50F6739907E18E0</key>
+		<key>403AA9711DB929E16B2E6E15E2189749</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A2050FE9FAE41F870EDEBEA059A01718</key>
+		<key>437B23F567C5BDAD66B098BF4C2B9A95</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FF4327599EC951DEEB10D0930689FFA5</key>
+		<key>C890B600C5EB972C61454228438450D0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E4F35FB207D9CF444AB1FBD1D196BA52</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -15,16 +15,21 @@ PODS:
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
   - JNKeychain (0.1.4)
+  - Realm (0.98.2):
+    - Realm/Headers (= 0.98.2)
+  - Realm/Headers (0.98.2)
   - Socket.IO-Client-Swift (5.4.1)
 
 DEPENDENCIES:
   - AFNetworking
   - JNKeychain
+  - Realm
   - Socket.IO-Client-Swift
 
 SPEC CHECKSUMS:
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
   JNKeychain: fb6cc9ec95959ba46cd95d0ee6f7a05e41da9f42
+  Realm: 88a147fe04b8f07191a676b15c779b2b448991de
   Socket.IO-Client-Swift: ad65f1437dd97c4ac01e2e506386fafc3de2ece1
 
 COCOAPODS: 0.39.0.beta.4

@@ -10,6 +10,7 @@
 
 #import "AutolayoutHelper.h"
 
+#import "SearchViewController.h"
 #import "Utilities.h"
 
 @interface CreateViewController()
@@ -52,14 +53,25 @@
   shareButton.layer.borderColor = [UIColor blackColor].CGColor;
   shareButton.layer.cornerRadius = 8.0;
   
+  UIButton *continueButton = [[UIButton alloc]init];
+  [continueButton setTitle:@"Continue" forState:UIControlStateNormal];
+  [continueButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+  continueButton.titleLabel.font = [UIFont fontWithName:@"AvenirNext-Regular" size:20];
+  continueButton.contentEdgeInsets = UIEdgeInsetsMake(10, 12, 10, 12);
+  [continueButton addTarget:self action:@selector(continueButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+  continueButton.layer.borderWidth = 1.0;
+  continueButton.layer.borderColor = [UIColor blackColor].CGColor;
+  continueButton.layer.cornerRadius = 8.0;
+  
   self.parentView = [UIView new];
   
   
   [AutolayoutHelper configureView:self.view
-                      subViews:VarBindings(shareButton, _parentView)
+                      subViews:VarBindings(shareButton, _parentView, continueButton)
                       constraints:@[@"H:|-20-[_parentView]-20-|",
                                     @"X:shareButton.centerX == superview.centerX",
-                                    @"V:|-60-[_parentView]-25-[shareButton]"]];
+                                    @"X:continueButton.centerX == superview.centerX",
+                                    @"V:|-60-[_parentView]-25-[shareButton]-40-[continueButton]"]];
   
   NSLayoutConstraint *squareCode = [NSLayoutConstraint constraintWithItem:self.parentView
                                                                 attribute:NSLayoutAttributeHeight
@@ -113,6 +125,24 @@
     shareSheet = [[UIActivityViewController alloc]initWithActivityItems:@[self.qrCodeImage.image] applicationActivities:nil];
   }
   [self presentViewController:shareSheet animated:YES completion:nil];
+}
+
+-(IBAction)continueButtonTapped:(id)sender {
+  
+  SearchViewController *searchController = [[SearchViewController alloc]init];
+  
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                 initWithTitle: @"Back"
+                                 style: UIBarButtonItemStylePlain
+                                 target: nil action: nil];
+  [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIFont fontWithName:@"AvenirNext-Regular" size:18.0], NSFontAttributeName,
+                                      [UIColor blackColor], NSForegroundColorAttributeName,
+                                      nil] forState:UIControlStateNormal];
+  
+  [self.navigationItem setBackBarButtonItem: backButton];
+  
+  [self.navigationController pushViewController:searchController animated:YES];
 }
 
 @end

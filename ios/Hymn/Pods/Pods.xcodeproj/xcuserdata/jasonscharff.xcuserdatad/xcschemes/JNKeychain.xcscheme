@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'AE9E8A5E0A7F6D3FB4281371'
+               BlueprintIdentifier = '28B49A35FEF1C7E5E6D5EDC7'
                BlueprintName = 'JNKeychain'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'JNKeychain.framework'>

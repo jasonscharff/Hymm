@@ -18,6 +18,7 @@
 -(void)loginWithSession:(SPTSession *)session {
   NSDictionary *parameters = @{@"username" : session.canonicalUsername,
                                @"access_token" : session.accessToken};
+  [JNKeychain saveValue:session.accessToken forKey:SPOTIFY_AUTH_KEY];
   [self POST:@"user/login" parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
     [JNKeychain saveValue:responseObject[@"auth_token"] forKey:AUTH_TOKEN_KEY];
     
