@@ -10,5 +10,8 @@
 
 @interface CurrentMusicController : UIViewController
 
+-(void)updateProgresss : (CGFloat)progress;
+-(void)goToEmptyRoom;
+-(void)newSongWithURI : (NSString *)uri;
 
 @end

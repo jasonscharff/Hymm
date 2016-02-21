@@ -38,4 +38,12 @@
   return scaledImage;
 }
 
++ (NSString *)getSpotifyIDFromURI : (NSString *)uri {
+  NSRange range = [uri rangeOfString:@":"];
+  NSString *truncateOne = [uri substringFromIndex:range.location + range.length];
+  range = [truncateOne rangeOfString:@":"];
+  NSString *truncateTwo = [truncateOne substringFromIndex:range.location + range.length];
+  return truncateTwo;
+}
+
 @end

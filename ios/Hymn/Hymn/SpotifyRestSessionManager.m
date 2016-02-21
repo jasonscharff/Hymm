@@ -52,4 +52,15 @@
   }];
 }
 
+-(void)getSongFromIdentifier : (NSString *)identifier : (void (^)(Song * aSong))completion {
+  [self.requestSerializer setValue:[NSString stringWithFormat:@"Bearer %@", [JNKeychain loadValueForKey:SPOTIFY_AUTH_KEY]] forHTTPHeaderField:@"Authorization"];
+  [self GET:[NSString stringWithFormat:@"tracks/%@", identifier] parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+    Song *aSong = [[Song alloc]init];
+    [aSong setupFromJSONDictionary:responseObject];
+    completion(aSong);
+  } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    NSLog(@"error = %@", error);
+  }];
+}
+
 @end

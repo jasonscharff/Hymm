@@ -15,5 +15,6 @@
 
 + (instancetype)sharedSessionManager;
 - (void)searchWithQuery : (NSString *)query : (void (^)(NSArray<Song *> *))completion;
+-(void)getSongFromIdentifier : (NSString *)identifier : (void (^)(Song * aSong))completion;
 
 @end

@@ -14,6 +14,7 @@
 @property NSString *imageURL;
 @property NSString *artistName;
 @property NSString *spotifyURI;
+@property int duration;
 
 -(void)setupFromJSONDictionary : (NSDictionary *)dictionary;
 

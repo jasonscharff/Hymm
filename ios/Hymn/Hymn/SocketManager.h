@@ -12,6 +12,8 @@
 
 #import <SocketIOClientSwift/SocketIOClientSwift-Swift.h>
 
+#import "CurrentMusicController.h"
+
 @interface SocketManager : NSObject
 
 + (instancetype)sharedSocket;
@@ -22,5 +24,7 @@
 @property (nonatomic, strong) NSString *baseURL;
 @property (nonatomic, strong) SocketIOClient *socketIOClient;
 @property (nonatomic, strong) NSString *nsp;
+
+@property (nonatomic, strong) CurrentMusicController *musicVC;
 
 @end

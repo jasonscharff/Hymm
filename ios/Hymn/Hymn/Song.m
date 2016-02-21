@@ -25,6 +25,8 @@
   }
   
   self.artistName = dictionary[@"artists"][0][@"name"]; //Note, there could be multiple artists. I'm just using the first one listed.
+  
+  self.duration = [dictionary[@"duration_ms"]intValue];
 }
 
 // Specify default values for properties

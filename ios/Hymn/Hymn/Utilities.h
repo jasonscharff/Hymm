@@ -13,5 +13,6 @@
 @interface Utilities : NSObject
 
 + (UIImage *)createQRForString:(NSString *)qrString;
++ (NSString *)getSpotifyIDFromURI : (NSString *)uri;
 
 @end

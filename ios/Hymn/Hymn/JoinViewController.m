@@ -12,8 +12,11 @@
 
 #import "AutolayoutHelper.h"
 #import "BottomBorderTextField.h"
+#import "CurrentMusicController.h"
+#import "EmptyRoomViewController.h"
 #import "ImageArrangedButton.h"
 #import "RESTSessionManager+Space.h"
+#import "SocketManager.h"
 #import "QRCodeScannerViewController.h"
 #import "UIColor+ColorPalette.h"
 
@@ -182,6 +185,30 @@ static const int QRCODE_BUTTON_DISTANCE_FROM_BOTTOM = 60;
 }
 
 -(void)hasJoinedSpace : (NSNotification *)notification {
+  
+  UIBarButtonItem *backButton = [[UIBarButtonItem alloc]
+                                 initWithTitle: @"Back"
+                                 style: UIBarButtonItemStylePlain
+                                 target: nil action: nil];
+  
+  [backButton setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
+                                      [UIFont fontWithName:@"AvenirNext-Regular" size:18.0], NSFontAttributeName,
+                                      [UIColor blackColor], NSForegroundColorAttributeName,
+                                      nil] forState:UIControlStateNormal];
+  
+  
+  [self.navigationItem setBackBarButtonItem: backButton];
+  
+  UIViewController *vc;
+  
+  if([SocketManager sharedSocket].songURI) {
+    vc = [[CurrentMusicController alloc]init];
+    [SocketManager sharedSocket].musicVC = (CurrentMusicController *)vc;
+  }
+  else {
+    vc = [[EmptyRoomViewController alloc]init];
+  }
+  [self.navigationController pushViewController:vc animated:YES];
   
 }
 
