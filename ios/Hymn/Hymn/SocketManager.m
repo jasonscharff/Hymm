@@ -89,9 +89,9 @@
   }];
   [self.socketIOClient on:@"seek" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
     if(data[0] != [NSNull null]) {
-      int serverTime = [data[0]intValue] / 1000;
-      NSLog(@"server time = %i", serverTime);
-      if(ABS(self.player.currentPlaybackPosition - serverTime) > 1) {
+      CGFloat serverTime = [data[0]floatValue] / 1000.0f;
+      NSLog(@"server time = %f", serverTime);
+      if(ABS(self.player.currentPlaybackPosition - serverTime) > 1.0) {
         [self.player seekToOffset:serverTime callback:nil];
       }
     }
