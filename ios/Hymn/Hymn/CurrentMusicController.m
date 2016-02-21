@@ -34,7 +34,6 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor whiteColor];
-  self.navigationItem.leftBarButtonItem = nil;
   self.title = @"Now Playing";
   _albumArtwork = [[UIImageView alloc]init];
   _titleLabel = [[UILabel alloc]init];
@@ -81,6 +80,7 @@
 
 -(void)viewWillAppear:(BOOL)animated {
   [super viewWillAppear:animated];
+  self.navigationItem.leftBarButtonItem = nil;
   self.tabBarController.title = @"Now Playing";
 }
 
