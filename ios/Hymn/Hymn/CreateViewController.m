@@ -136,25 +136,25 @@
   tabBarController.tabBar.translucent = NO;
 
   UIImage *search = [UIImage imageNamed:@"search"];
-  UIImage *queue = [UIImage imageNamed:@"queue"];
+//  UIImage *queue = [UIImage imageNamed:@"queue"];
   UIImage *play = [UIImage imageNamed:@"play"];
   
   UITabBarItem *item1 = [[UITabBarItem alloc]initWithTitle:@"Search" image:search selectedImage:search];
-  UITabBarItem *item2 = [[UITabBarItem alloc]initWithTitle:@"Queue" image:queue selectedImage:queue];
+//  UITabBarItem *item2 = [[UITabBarItem alloc]initWithTitle:@"Queue" image:queue selectedImage:queue];
   UITabBarItem *item3 = [[UITabBarItem alloc]initWithTitle:@"Now Playing" image:play selectedImage:play];
 
   
   SearchViewController *searchController = [[SearchViewController alloc]init];
   searchController.tabBarItem = item1;
   
-  QueueViewController *queueController = [[QueueViewController alloc]init];
-  queueController.tabBarItem = item2;
+//  QueueViewController *queueController = [[QueueViewController alloc]init];
+//  queueController.tabBarItem = item2;
   
   CurrentMusicController *playController = [[CurrentMusicController alloc]init];
   playController.tabBarItem = item3;
   [SocketManager sharedSocket].musicVC = playController;
   
-  tabBarController.viewControllers = @[searchController, queueController, playController];
+  tabBarController.viewControllers = @[searchController/*, queueController,*/, playController];
   
   
   
