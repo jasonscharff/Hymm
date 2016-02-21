@@ -140,7 +140,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
   }
   else {
-    //Go back to a previous view.
+     [self dismissViewControllerAnimated:YES completion:nil];
   }
 }
 

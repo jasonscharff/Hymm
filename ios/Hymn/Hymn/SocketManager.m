@@ -92,7 +92,10 @@
       CGFloat serverTime = [data[0]floatValue] / 1000.0f;
       NSLog(@"server time = %f", serverTime);
       if(!self.isInControl) {
-        [self.player seekToOffset:serverTime callback:nil];
+        if(ABS(self.player.currentPlaybackPosition - serverTime) > 0.25) {
+          [self.player seekToOffset:serverTime callback:nil];
+        }
+        
       }
     }
     
