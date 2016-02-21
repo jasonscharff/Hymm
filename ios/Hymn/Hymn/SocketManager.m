@@ -92,7 +92,7 @@
       CGFloat serverTime = [data[0]floatValue] / 1000.0f;
       NSLog(@"server time = %f", serverTime);
       if(!self.isInControl) {
-        if(ABS(self.player.currentPlaybackPosition - serverTime) > 0.25) {
+        if(ABS(self.player.currentPlaybackPosition - serverTime) > 0.5) {
           [self.player seekToOffset:serverTime callback:nil];
         }
         
@@ -127,7 +127,7 @@
 }
 
 -(void)sendUpdate : (CADisplayLink *)displayLink {
-  if(self.displayCounter %25 == 0) {
+  if(self.displayCounter %20 == 0) {
     [self.socketIOClient emit:@"time_update" withItems:@[@(_player.currentPlaybackPosition * 1000)]];
   }
   self.displayCounter++;
