@@ -102,7 +102,22 @@
   
   [self.socketIOClient on:@"force_seek" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
      CGFloat serverTime = [data[0]floatValue] / 1000.0f;
+    NSLog(@"server time on force seek = %f", serverTime);
     [self.player seekToOffset:serverTime callback:nil];
+  }];
+  
+  [self.socketIOClient on:@"pause_song" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
+    [self.player setIsPlaying:NO callback:^(NSError *error) {
+      
+    }];
+    [self.musicVC setPauseButtonImage];
+  }];
+  
+  [self.socketIOClient on:@"play_song" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
+    [self.player setIsPlaying:YES callback:^(NSError *error) {
+      
+    }];
+    [self.musicVC setPlayButtonImage];
   }];
   
   [self.socketIOClient connect];
@@ -148,6 +163,13 @@
 -(void)updateProgress: (NSTimer *)timer {
   CGFloat ratio = ((CGFloat)self.player.currentPlaybackPosition) / ((CGFloat)self.player.currentTrackDuration);
   [self.musicVC updateProgresss:ratio];
+}
+
+-(void)sendPause {
+  [self.socketIOClient emit:@"pause" withItems:@[]];
+}
+-(void)sendPlay {
+  [self.socketIOClient emit:@"play" withItems:@[]];
 }
 
 

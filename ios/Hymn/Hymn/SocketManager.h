@@ -30,6 +30,8 @@
 @property (nonatomic, strong) CurrentMusicController *musicVC;
 
 -(void)playSong : (Song *) aSong;
+-(void)sendPause;
+-(void)sendPlay;
 
 @property (nonatomic) BOOL isInControl;
 

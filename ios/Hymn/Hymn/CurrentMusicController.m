@@ -93,15 +93,21 @@
   }
 }
 
+-(void)setPlayButtonImage {
+  [_playpause setBackgroundImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
+}
+
+-(void)setPauseButtonImage {
+  [_playpause setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
+}
+
 - (IBAction)playPausePressed:(id)sender {
   if([SocketManager sharedSocket].player.isPlaying) {
-    [[SocketManager sharedSocket].player setIsPlaying:NO callback:^(NSError *error) {
-      
-    }];
+    [[SocketManager sharedSocket]sendPause];
   }
-  [[SocketManager sharedSocket].player setIsPlaying:YES callback:^(NSError *error) {
-    
-  }];
+  else {
+     [[SocketManager sharedSocket]sendPlay];
+  }
   [self setPlayPauseImage];
 }
 
