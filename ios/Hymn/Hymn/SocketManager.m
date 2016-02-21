@@ -74,8 +74,10 @@
     }
     else {
       self.displayCounter = 0;
-      _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(sendUpdate:)];
-      [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+      if(self.isInControl) { 
+        _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(sendUpdate:)];
+        [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+      }
       [self setSongURI:[NSURL URLWithString:data[0]]];
       if(!self.timer) {
         [[NSNotificationCenter defaultCenter]postNotificationName:SONG_HAS_BEEN_CHOSEN object:nil];
@@ -88,6 +90,7 @@
   [self.socketIOClient on:@"seek" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
     if(data[0] != [NSNull null]) {
       int serverTime = [data[0]intValue];
+      NSLog(@"server time = %i", serverTime);
       if(ABS(self.player.currentPlaybackPosition - serverTime) > 1000) {
         [self.player seekToOffset:[data[0]intValue] callback:nil];
       }
