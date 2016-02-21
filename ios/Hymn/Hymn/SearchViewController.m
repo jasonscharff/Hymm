@@ -157,6 +157,7 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
                                                            }];
     [actionSheet addAction:playAction];
     [actionSheet addAction:queueAction];
+    [self presentViewController:actionSheet animated:YES completion:nil];
     
   }
   else {
@@ -166,6 +167,7 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
 
 -(void)playSong : (Song *)aSong {
   [[SocketManager sharedSocket]playSong:aSong];
+  self.tabBarController.selectedIndex = 2;
 }
 
 -(void)queueSong : (Song *)aSong {
