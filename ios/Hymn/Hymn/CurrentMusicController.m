@@ -125,6 +125,8 @@
     self.titleLabel.text = aSong.name;
     self.artistLabel.text = aSong.artistName;
     [self.albumArtwork setImageWithURL:[NSURL URLWithString:aSong.imageURL]];
+    //Songs always start out playing.
+    [_playpause setBackgroundImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
   }];
 }
 

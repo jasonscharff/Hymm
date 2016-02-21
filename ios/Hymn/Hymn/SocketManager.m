@@ -74,7 +74,7 @@
     }
     else {
       self.displayCounter = 0;
-      if(self.isInControl) { 
+      if(self.isInControl) {
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(sendUpdate:)];
         [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
       }
@@ -89,9 +89,9 @@
   }];
   [self.socketIOClient on:@"seek" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
     if(data[0] != [NSNull null]) {
-      int serverTime = [data[0]intValue];
+      int serverTime = [data[0]intValue] / 1000;
       NSLog(@"server time = %i", serverTime);
-      if(ABS(self.player.currentPlaybackPosition - serverTime) > 1000) {
+      if(ABS(self.player.currentPlaybackPosition - serverTime) > 1) {
         [self.player seekToOffset:[data[0]intValue] callback:nil];
       }
     }
@@ -125,7 +125,7 @@
 
 -(void)sendUpdate : (CADisplayLink *)displayLink {
   if(self.displayCounter %3 == 0) {
-    [self.socketIOClient emit:@"time_update" withItems:@[@(_player.currentPlaybackPosition)]];
+    [self.socketIOClient emit:@"time_update" withItems:@[@(_player.currentPlaybackPosition * 1000)]];
   }
   self.displayCounter++;
   
