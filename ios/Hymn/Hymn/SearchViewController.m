@@ -94,6 +94,7 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
   if(textField.text.length <=0) {
     _noResultsLabel.hidden = YES;
     _searchResults = @[];
+    _activityIndicatorView.hidden = YES;
     [_tableView reloadData];
   }
   else {
@@ -102,6 +103,7 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
     [[SpotifyRESTSessionManager sharedSessionManager]searchWithQuery:textField.text :^(NSArray<Song *> * results) {
       if(textField.text.length <=0) {
         _noResultsLabel.hidden = YES;
+        _activityIndicatorView.hidden = YES;
         _searchResults = @[];
         [_tableView reloadData];
       }
