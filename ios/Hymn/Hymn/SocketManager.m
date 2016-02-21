@@ -92,7 +92,7 @@
       int serverTime = [data[0]intValue] / 1000;
       NSLog(@"server time = %i", serverTime);
       if(ABS(self.player.currentPlaybackPosition - serverTime) > 1) {
-        [self.player seekToOffset:[data[0]intValue] callback:nil];
+        [self.player seekToOffset:serverTime callback:nil];
       }
     }
     
