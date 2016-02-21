@@ -10,8 +10,10 @@
 
 #import "AutolayoutHelper.h"
 #import "SearchResultTableViewCell.h"
+#import "SocketManager.h"
 #import "Song.h"
 #import "SpotifyRESTSessionManager.h"
+#import "RESTSessionManager+Space.h"
 #import "UIColor+ColorPalette.h"
 
 @interface SearchViewController () <UITextFieldDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -135,6 +137,35 @@ static NSString *SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER = @"com.jasonscharff.
   SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:SEARCH_RESULT_TABLE_VIEW_REUSE_IDENTIFIER];
   [cell configureFromSong:_searchResults[indexPath.row]];
   return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+  if([SocketManager sharedSocket].songURI) {
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *playAction = [UIAlertAction actionWithTitle:@"Play now."
+                                                          style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                            [self playSong:self.searchResults[indexPath.row]];
+                                                          }];
+    
+    UIAlertAction *queueAction = [UIAlertAction actionWithTitle:@"Add to queue"
+                                                           style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                                                             [self queueSong:self.searchResults[indexPath.row]];
+                                                           }];
+    [actionSheet addAction:playAction];
+    [actionSheet addAction:queueAction];
+    
+  }
+  else {
+    [self playSong:self.searchResults[indexPath.row]];
+  }
+}
+
+-(void)playSong : (Song *)aSong {
+  [[SocketManager sharedSocket]playSong:aSong];
+}
+
+-(void)queueSong : (Song *)aSong {
+  [[RESTSessionManager sharedSessionManager]addSongToQueue:aSong];
 }
 
 - (void)didReceiveMemoryWarning {

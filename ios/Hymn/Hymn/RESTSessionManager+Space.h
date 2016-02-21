@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "RESTSessionManager.h"
 
+@class Song;
+
 @interface RESTSessionManager(Space)
 
--(void)joinSpaceWithIdentifier : (NSString *)identifier;
--(void)createSpace : (void (^)(NSString * spaceIdentifier))completion;
+- (void)joinSpaceWithIdentifier : (NSString *)identifier;
+- (void)createSpace : (void (^)(NSString * spaceIdentifier))completion;
+- (void)addSongToQueue : (Song *)aSong;
 
 @end

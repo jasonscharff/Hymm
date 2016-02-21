@@ -9,6 +9,7 @@
 #import "SocketManager.h"
 
 #import "Constants.h"
+#import "Song.h"
 
 @interface SocketManager()
 
@@ -17,6 +18,9 @@
 @property (nonatomic) NSTimer *timer;
 
 @end
+
+//queue is static
+//
 
 @implementation SocketManager
 
@@ -54,9 +58,6 @@
   self.socketIOClient = [[SocketIOClient alloc] initWithSocketURL:[NSURL URLWithString:_baseURL] options:@{@"nsp" : self.nsp, @"log" : @NO}];
   [self.socketIOClient on:@"connect" callback:^(NSArray* data, SocketAckEmitter* ack) {
     NSLog(@"connect data = %@", data);
-    //    self.displayCounter = 0;
-    //    _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(sendUpdate:)];
-    //    [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     
   }];
   [self.socketIOClient on:@"stop_timer" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
@@ -68,9 +69,13 @@
         [self.timer invalidate];
         self.timer = nil;
       }
+      self.songURI = nil;
       [self.musicVC goToEmptyRoom];
     }
     else {
+      self.displayCounter = 0;
+      _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(sendUpdate:)];
+      [_displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
       [self setSongURI:[NSURL URLWithString:data[0]]];
       if(!self.timer) {
         [[NSNotificationCenter defaultCenter]postNotificationName:SONG_HAS_BEEN_CHOSEN object:nil];
@@ -81,10 +86,13 @@
     
   }];
   [self.socketIOClient on:@"seek" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
-    int serverTime = [data[0]intValue];
-    if(ABS(self.player.currentPlaybackPosition - serverTime) > 1000) {
-      [self.player seekToOffset:[data[0]intValue] callback:nil];
+    if(data[0] != [NSNull null]) {
+      int serverTime = [data[0]intValue];
+      if(ABS(self.player.currentPlaybackPosition - serverTime) > 1000) {
+        [self.player seekToOffset:[data[0]intValue] callback:nil];
+      }
     }
+    
   }];
   
   [self.socketIOClient connect];
@@ -99,6 +107,9 @@
 
 -(void)setSongURI:(NSURL *)songURI {
   _songURI = songURI;
+  if(!_songURI) {
+    return;
+  }
   [self.player playURIs:@[songURI] fromIndex:0 callback:^(NSError *error) {
     if(error) {
       NSLog(@"an error has occurred");
@@ -110,11 +121,18 @@
 }
 
 -(void)sendUpdate : (CADisplayLink *)displayLink {
-//  if(self.displayCounter %3 == 0) {
-//    [self.socketIOClient emit:@"time_update" withItems:@[@(_player.currentPlaybackPosition)]];
-//  }
-//  self.displayCounter++;
+  if(self.displayCounter %3 == 0) {
+    [self.socketIOClient emit:@"time_update" withItems:@[@(_player.currentPlaybackPosition)]];
+  }
+  self.displayCounter++;
   
+}
+
+-(void)playSong : (Song *) aSong {
+  NSDictionary *dictionary = @{@"uri" : aSong.spotifyURI,
+                               @"duration" : @(aSong.duration)};
+  
+  [self.socketIOClient emit:@"chosen_song" withItems:@[dictionary]];
 }
 
 -(void)updateProgress: (NSTimer *)timer {

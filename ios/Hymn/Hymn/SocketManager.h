@@ -14,6 +14,8 @@
 
 #import "CurrentMusicController.h"
 
+@class Song;
+
 @interface SocketManager : NSObject
 
 + (instancetype)sharedSocket;
@@ -26,5 +28,7 @@
 @property (nonatomic, strong) NSString *nsp;
 
 @property (nonatomic, strong) CurrentMusicController *musicVC;
+
+-(void)playSong : (Song *) aSong;
 
 @end
