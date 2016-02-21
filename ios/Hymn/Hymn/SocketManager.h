@@ -31,4 +31,6 @@
 
 -(void)playSong : (Song *) aSong;
 
+@property (nonatomic) BOOL isInControl;
+
 @end

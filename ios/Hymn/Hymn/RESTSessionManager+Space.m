@@ -47,6 +47,7 @@
     NSString *nsp = responseObject[@"space_id"];
     [SocketManager sharedSocket].nsp = nsp;
     [SocketManager sharedSocket].baseURL = responseObject[@"base_url"];
+    [SocketManager sharedSocket].isInControl = YES;
     completion(responseObject[@"share_id"]);
   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
     NSLog(@"error = %@", error);
