@@ -110,14 +110,14 @@
     [self.player setIsPlaying:NO callback:^(NSError *error) {
       
     }];
-    [self.musicVC setPlayButtonImage];
+    [self.musicVC setPauseButtonImage];
   }];
   
   [self.socketIOClient on:@"play_song" callback:^(NSArray * _Nonnull data, SocketAckEmitter * _Nonnull ack) {
     [self.player setIsPlaying:YES callback:^(NSError *error) {
       
     }];
-    [self.musicVC setPauseButtonImage];
+    [self.musicVC setPlayButtonImage];
   }];
   
   [self.socketIOClient connect];
